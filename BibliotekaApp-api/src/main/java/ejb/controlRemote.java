@@ -37,9 +37,9 @@ public interface controlRemote {
     
     void rezerwujksiazke(int ID, int idksiazki, String data);
     
-    //  List<String> lista();
+    List<String> lista();
     
-    //  List<String> brakodbioru();
+    List<String> brakodbioru();
     
     
     

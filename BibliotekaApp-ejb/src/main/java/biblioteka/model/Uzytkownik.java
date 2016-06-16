@@ -168,7 +168,7 @@ public class Uzytkownik implements Serializable {
 
     @Override
     public String toString() {
-        return "biblioteka.model.Uzytkownik[ id=" + id + " ]";
+        return "ID uzytkownika " + id + " "+name;
     }
     
 }

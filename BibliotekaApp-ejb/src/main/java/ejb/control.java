@@ -220,4 +220,93 @@ public class control implements controlRemote {
         ksiazkiFacade.edit(ksiazki);
 
     }
+
+    @Override
+    public List<String> lista() {
+
+        List<Ksiazki> ksiazki = new ArrayList<>();
+
+        List<String> listaa = new ArrayList<>();
+
+        List<UzytkownikWypozycenia> listawypozyczen = new ArrayList<>();
+
+        listawypozyczen = wypozyczeniaFacade.findAll();
+
+        ksiazki = ksiazkiFacade.findAll();
+
+        int temp;
+
+        for (int i = 0; i < ksiazki.size(); i++) {
+
+            temp = ksiazki.get(i).getStanksiazki();
+
+            if (temp == 0) {
+
+                listaa.add("Dostępna " + ksiazki.get(i));
+
+            }
+
+            if (temp == 1) {
+                listaa.add("Zarezerwowana " + ksiazki.get(i));
+            }
+
+            if (temp == 2) {
+
+                Uzytkownik uzytkownik = new Uzytkownik();
+
+                for (UzytkownikWypozycenia listawypozyczen1 : listawypozyczen) {
+
+                    uzytkownik = listawypozyczen1.getUzytkownikId();
+
+                }
+
+                listaa.add("Wypozyczona " + ksiazki.get(i) + " Przez " + uzytkownik.toString());
+            }
+
+        }
+
+        return listaa;
+    }
+
+    @Override
+    public List<String> brakodbioru() {
+
+        Date data = new Date();
+        Date datarezer = new Date();
+
+        List<UzytkownikWypozycenia> listawypozyczen = new ArrayList<>();
+
+        List<String> listaa = new ArrayList<>();
+        
+        listaa.add("Brak rekordów");
+
+        listawypozyczen = wypozyczeniaFacade.findAll();
+
+      /*  for (UzytkownikWypozycenia listawypozyczen1 : listawypozyczen) {
+
+            datarezer = listawypozyczen1.getDataWypozyczenia();
+            
+            int comparison = data.compareTo(datarezer);
+
+            if (comparison == 1) {
+                Uzytkownik uzytkownik = new Uzytkownik();
+                Ksiazki ksiazka = new Ksiazki();
+
+                ksiazka = listawypozyczen1.getKsiazkiId();
+                uzytkownik = listawypozyczen1.getUzytkownikId();
+
+                if (ksiazka.getStanksiazki() == 1) {
+                    listaa.add(uzytkownik.getPesel());
+                    wypozyczeniaFacade.remove(listawypozyczen1);
+
+                }
+
+            }
+
+        }  */
+      
+  
+        return listaa;
+
+    }
 }

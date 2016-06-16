@@ -23,15 +23,19 @@ public class Main {
 
         System.out.println(contr.funkcja());
 
-       
-
         Scanner odczyt;
         odczyt = new Scanner(System.in);
 
         List<String> lista = new ArrayList<>();
-        
+
+     //   lista = contr.brakodbioru();
+
+     //   for (int i = 0; i < lista.size(); i++) {
+     //       System.out.println(lista.get(i));
+     //  }
+
         int liczba = contr.findnumberofkat();
-        
+
         System.out.println(liczba);
 
         int k = 1, j, idksiazki, ID = 0, numb = 1;
@@ -79,10 +83,8 @@ public class Main {
                     System.out.println("Podaj haslo");
                     hasl = odczyt.nextLine();
 
-                   
-                    
                     contr.dodajklienta(imie, nazwisko, hasl, mail);
-                    
+
                     break;
 
                 case 3:
@@ -92,10 +94,8 @@ public class Main {
                     System.out.println("Podaj haslo");
                     nazwisko = odczyt.nextLine();
 
-                    //     ID = obsluga.logowanie(imie, nazwisko);
-                    
                     ID = contr.logowanie(imie, nazwisko);
-                    
+
                     if (ID == 0) {
                         System.out.println("Podano bledne haslo");
 
@@ -124,24 +124,22 @@ public class Main {
                     System.out.println("Podaj Rok Wydania");
                     rok = odczyt.nextLine();
 
-                   
                     contr.dodajksiazke(imie, nazwisko, mail, hasl, rok, "2");
-                    
+
                     break;
 
                 case 5:
-                   
+
                     numb = contr.numberofbooks();
-                    
+
                     System.out.println("Liczba książek: " + numb);
 
                     break;
 
                 case 6:
 
-                    //    lista = obsluga.rekordtabeli();
                     lista = contr.rekordtabeli();
-                    
+
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(lista.get(i));
                     }
@@ -155,9 +153,8 @@ public class Main {
                         break;
                     }
 
-                    //      lista = obsluga.rekordtabeli();
-                       lista = contr.rekordtabeli();
-                    
+                    lista = contr.rekordtabeli();
+
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(lista.get(i));
                     }
@@ -165,9 +162,8 @@ public class Main {
                     temp = odczyt.nextLine();
                     idksiazki = Integer.parseInt(temp);
 
-                    //  obsluga.wypozyczKsiazke(ID, idksiazki);
                     contr.wypozyczKsiazke(ID, idksiazki);
-                    
+
                     break;
 
                 case 8:
@@ -177,7 +173,6 @@ public class Main {
                         break;
                     }
 
-                    //     lista = obsluga.rekordtabeli();
                     lista = contr.rekordtabeli();
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(lista.get(i));
@@ -186,9 +181,8 @@ public class Main {
                     temp = odczyt.nextLine();
                     idksiazki = Integer.parseInt(temp);
 
-                    //    obsluga.usunKsiazke(idksiazki);
                     contr.usunKsiazke(idksiazki);
-                    
+
                     break;
 
                 case 9:
@@ -198,9 +192,8 @@ public class Main {
                         break;
                     }
 
-                    //      lista = obsluga.rekordtabeli();
                     lista = contr.rekordtabeli();
-                    
+
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(lista.get(i));
                     }
@@ -211,14 +204,14 @@ public class Main {
                     System.out.println("Podaj date rezerwacji (Format dd/mm/rrrr)");
                     temp = odczyt.nextLine();
 
-                    //     obsluga.rezerwujksiazke(ID, idksiazki, temp);
                     contr.rezerwujksiazke(ID, idksiazki, temp);
-                    
+
                     break;
 
                 case 10:
 
-                    //     lista = obsluga.lista();
+                    lista = contr.lista();
+
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(lista.get(i));
                     }
@@ -226,12 +219,12 @@ public class Main {
                     break;
 
                 case 11:
-                    
+
                     if (ID == 0) {
                         System.out.println("Nie jestes zalogowany");
                         break;
                     }
-                    
+
                     String ksid;
                     int tempid;
                     System.out.println("Podaj Id ksiazki do edycji");
@@ -248,10 +241,8 @@ public class Main {
                     System.out.println("Podaj Rok Wydania");
                     rok = odczyt.nextLine();
 
-                    //    obsluga.edytujksiazke(tempid, imie, nazwisko, mail, hasl, rok, "1");
-                    
                     contr.edytujksiazke(tempid, imie, nazwisko, mail, hasl, rok, "2");
-                    
+
                     break;
 
             }
