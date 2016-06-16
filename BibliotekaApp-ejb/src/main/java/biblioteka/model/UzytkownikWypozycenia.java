@@ -62,7 +62,7 @@ public class UzytkownikWypozycenia implements Serializable {
     @ManyToOne(optional = false)
     private Uzytkownik uzytkownikId;
 
-    public UzytkownikWypozycenia() {
+   public UzytkownikWypozycenia() {
     }
 
     public UzytkownikWypozycenia(Integer id) {

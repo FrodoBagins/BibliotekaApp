@@ -172,6 +172,8 @@ public class control implements controlRemote {
 
         wypozycenia.setKsiazkiId(ksiazki);
         wypozycenia.setUzytkownikId(uzytkownik);
+        
+         wypozycenia.setDataWypozyczenia(data);
        // wypozycenia.setData(data);
         wypozyczeniaFacade.create(wypozycenia);
 
