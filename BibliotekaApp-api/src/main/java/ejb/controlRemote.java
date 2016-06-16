@@ -26,7 +26,8 @@ public interface controlRemote {
 
     int numberofbooks();
 
-    //  int logowanie(String id, String haslo);
+    int logowanie(String id, String haslo);
+    
     //  List<String> rekordtabeli();
     //  void wypozyczKsiazke(int ID, int idksiazki);
     //  void usunKsiazke(int idksiazki);

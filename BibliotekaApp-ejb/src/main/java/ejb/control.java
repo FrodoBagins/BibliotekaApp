@@ -113,6 +113,25 @@ public class control implements controlRemote {
 
     @Override
     public int numberofbooks() {
-       return ksiazkiFacade.count();
+        return ksiazkiFacade.count();
+    }
+
+    @Override
+    public int logowanie(String id, String haslo) {
+
+        Integer ID = Integer.parseInt(id);
+
+        Uzytkownik uzytkownik = uzytkownikFacade.find(ID);
+
+        if (haslo.equals(uzytkownik.getHaslo())) {
+
+            return ID;
+
+        } else {
+
+            return 0;
+
+        }
+
     }
 }

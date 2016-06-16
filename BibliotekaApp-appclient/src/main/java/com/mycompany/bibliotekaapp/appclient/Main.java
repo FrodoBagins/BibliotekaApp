@@ -94,6 +94,8 @@ public class Main {
 
                     //     ID = obsluga.logowanie(imie, nazwisko);
                     
+                    ID = contr.logowanie(imie, nazwisko);
+                    
                     if (ID == 0) {
                         System.out.println("Podano bledne haslo");
 
@@ -212,10 +214,10 @@ public class Main {
 
                 case 11:
                     
-                 //   if (ID == 0) {
-                 //       System.out.println("Nie jestes zalogowany");
-                 //       break;
-                 //   }
+                    if (ID == 0) {
+                        System.out.println("Nie jestes zalogowany");
+                        break;
+                    }
                     
                     String ksid;
                     int tempid;
