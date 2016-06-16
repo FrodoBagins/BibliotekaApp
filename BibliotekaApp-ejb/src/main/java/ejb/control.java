@@ -10,10 +10,13 @@ import javax.ejb.Stateless;
 import biblioteka.dao.UzytkownikFacadeLocal;
 import biblioteka.dao.CategoryFacadeLocal;
 import biblioteka.dao.KsiazkiFacadeLocal;
+import biblioteka.dao.UzytkownikWypozyceniaFacadeLocal;
 
 import biblioteka.model.Uzytkownik;
 import biblioteka.model.Category;
 import biblioteka.model.Ksiazki;
+import biblioteka.model.UzytkownikWypozycenia;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,13 +38,14 @@ public class control implements controlRemote {
     @EJB
     private KsiazkiFacadeLocal ksiazkiFacade;
 
+    @EJB
+    private UzytkownikWypozyceniaFacadeLocal wypozyczeniaFacade;
+
     @Override
     public String funkcja() {
         return "wynik";
     }
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
     @Override
     public void dodajklienta(String name, String nazwisko, String haslo, String pesel) {
 
@@ -153,6 +157,26 @@ public class control implements controlRemote {
         }
 
         return listaa;
+
+    }
+
+    @Override
+    public void wypozyczKsiazke(int ID, int idksiazki) {
+
+        Date data = new Date();
+
+        Ksiazki ksiazki = ksiazkiFacade.find(idksiazki);
+        Uzytkownik uzytkownik = uzytkownikFacade.find(ID);
+
+        UzytkownikWypozycenia wypozycenia = new UzytkownikWypozycenia();
+
+        wypozycenia.setKsiazkiId(ksiazki);
+        wypozycenia.setUzytkownikId(uzytkownik);
+       // wypozycenia.setData(data);
+        wypozyczeniaFacade.create(wypozycenia);
+
+        ksiazki.setStanksiazki(2);
+        ksiazkiFacade.edit(ksiazki);
 
     }
 }

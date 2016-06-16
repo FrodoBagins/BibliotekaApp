@@ -29,10 +29,12 @@ public interface controlRemote {
 
     int logowanie(String id, String haslo);
     
-      List<String> rekordtabeli();
-    
-    
-    //  void wypozyczKsiazke(int ID, int idksiazki);
+    List<String> rekordtabeli();
+        
+    void wypozyczKsiazke(int ID, int idksiazki);
+      
+      
+      
     //  void usunKsiazke(int idksiazki);
     //  void rezerwujksiazke(int ID, int idksiazki, String data);
     //  List<String> lista();
