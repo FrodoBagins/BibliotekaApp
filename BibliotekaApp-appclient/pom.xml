@@ -8,11 +8,11 @@
     </parent>
 
     <groupId>com.mycompany</groupId>
-    <artifactId>BibliotekaApp-ejb</artifactId>
+    <artifactId>BibliotekaApp-appclient</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>ejb</packaging>
+    <packaging>app-client</packaging>
 
-    <name>BibliotekaApp-ejb</name>
+    <name>BibliotekaApp-appclient</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -21,9 +21,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.mycompany</groupId>
-            <artifactId>BibliotekaApp-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.ejb</groupId>
@@ -31,10 +32,15 @@
             <version>3.0</version>
         </dependency>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
+            <groupId>org.glassfish.main.appclient</groupId>
+            <artifactId>gf-client-module</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mycompany</groupId>
+            <artifactId>BibliotekaApp-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -54,10 +60,15 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ejb-plugin</artifactId>
-                <version>2.3</version>
+                <artifactId>maven-acr-plugin</artifactId>
+                <version>1.0</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <ejbVersion>3.1</ejbVersion>
+                    <archive>
+                        <manifest>                            
+                            <mainClass>com.mycompany.bibliotekaapp.appclient.Main</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
             <plugin>
