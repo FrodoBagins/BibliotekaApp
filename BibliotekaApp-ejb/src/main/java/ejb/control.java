@@ -8,6 +8,8 @@ package ejb;
 import javax.ejb.Stateless;
 
 import biblioteka.dao.UzytkownikFacadeLocal;
+import biblioteka.dao.CategoryFacadeLocal;
+
 import biblioteka.model.Uzytkownik;
 import javax.ejb.EJB;
 
@@ -20,6 +22,9 @@ public class control implements controlRemote {
 
     @EJB
     private UzytkownikFacadeLocal uzytkownikFacade;
+    
+    @EJB
+    private CategoryFacadeLocal categoryFacade;
 
     @Override
     public String funkcja() {
@@ -41,5 +46,11 @@ public class control implements controlRemote {
 
         uzytkownikFacade.create(uzytkownik);
 
+    }
+
+    @Override
+    public int findnumberofkat() {
+        
+        return categoryFacade.count();
     }
 }
