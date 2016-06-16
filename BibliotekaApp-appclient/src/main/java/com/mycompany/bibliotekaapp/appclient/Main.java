@@ -199,6 +199,8 @@ public class Main {
                     }
 
                     //      lista = obsluga.rekordtabeli();
+                    lista = contr.rekordtabeli();
+                    
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(lista.get(i));
                     }
@@ -210,6 +212,8 @@ public class Main {
                     temp = odczyt.nextLine();
 
                     //     obsluga.rezerwujksiazke(ID, idksiazki, temp);
+                    contr.rezerwujksiazke(ID, idksiazki, temp);
+                    
                     break;
 
                 case 10:

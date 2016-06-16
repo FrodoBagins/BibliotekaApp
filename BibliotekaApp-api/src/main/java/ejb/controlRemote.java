@@ -35,8 +35,10 @@ public interface controlRemote {
      
     void usunKsiazke(int idksiazki);
     
-    //  void rezerwujksiazke(int ID, int idksiazki, String data);
+    void rezerwujksiazke(int ID, int idksiazki, String data);
+    
     //  List<String> lista();
+    
     //  List<String> brakodbioru();
     
     

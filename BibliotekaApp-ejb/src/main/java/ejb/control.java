@@ -16,6 +16,9 @@ import biblioteka.model.Uzytkownik;
 import biblioteka.model.Category;
 import biblioteka.model.Ksiazki;
 import biblioteka.model.UzytkownikWypozycenia;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -188,5 +191,33 @@ public class control implements controlRemote {
         Ksiazki ksiazki = ksiazkiFacade.find(idksiazki);
 
         ksiazkiFacade.remove(ksiazki);
+    }
+
+    @Override
+    public void rezerwujksiazke(int ID, int idksiazki, String data) {
+        Date data2 = new Date();
+
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Date startDate = null;
+        try {
+            startDate = df.parse(data);
+            String newDateString = df.format(startDate);
+
+        } catch (ParseException e) {
+        }
+
+        Ksiazki ksiazki = ksiazkiFacade.find(idksiazki);
+        Uzytkownik uzytkownik = uzytkownikFacade.find(ID);
+
+        UzytkownikWypozycenia wypozycenia = new UzytkownikWypozycenia();
+
+        wypozycenia.setKsiazkiId(ksiazki);
+        wypozycenia.setUzytkownikId(uzytkownik);
+        wypozycenia.setDataWypozyczenia(startDate);
+        wypozyczeniaFacade.create(wypozycenia);
+
+        ksiazki.setStanksiazki(1);
+        ksiazkiFacade.edit(ksiazki);
+
     }
 }
