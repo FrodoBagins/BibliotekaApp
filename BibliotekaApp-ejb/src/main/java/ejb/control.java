@@ -14,7 +14,9 @@ import biblioteka.dao.KsiazkiFacadeLocal;
 import biblioteka.model.Uzytkownik;
 import biblioteka.model.Category;
 import biblioteka.model.Ksiazki;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.EJB;
 
 /**
@@ -132,6 +134,25 @@ public class control implements controlRemote {
             return 0;
 
         }
+
+    }
+
+    @Override
+    public List<String> rekordtabeli() {
+
+        List listek;
+
+        List<String> listaa = new ArrayList<>();
+
+        listek = ksiazkiFacade.findAll();
+
+        for (int i = 0; i < listek.size(); i++) {
+            System.out.println(listek.get(i));
+            listaa.add(listek.get(i).toString());
+
+        }
+
+        return listaa;
 
     }
 }

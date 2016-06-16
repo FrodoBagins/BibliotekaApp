@@ -5,6 +5,7 @@
  */
 package ejb;
 
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -28,7 +29,9 @@ public interface controlRemote {
 
     int logowanie(String id, String haslo);
     
-    //  List<String> rekordtabeli();
+      List<String> rekordtabeli();
+    
+    
     //  void wypozyczKsiazke(int ID, int idksiazki);
     //  void usunKsiazke(int idksiazki);
     //  void rezerwujksiazke(int ID, int idksiazki, String data);

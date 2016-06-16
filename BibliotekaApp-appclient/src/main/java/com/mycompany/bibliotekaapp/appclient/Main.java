@@ -140,6 +140,8 @@ public class Main {
                 case 6:
 
                     //    lista = obsluga.rekordtabeli();
+                    lista = contr.rekordtabeli();
+                    
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(lista.get(i));
                     }

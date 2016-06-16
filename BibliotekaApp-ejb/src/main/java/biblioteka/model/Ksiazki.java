@@ -210,7 +210,7 @@ public class Ksiazki implements Serializable {
 
     @Override
     public String toString() {
-        return "biblioteka.model.Ksiazki[ id=" + id + " ]";
+        return "ID " + id + " " + autor + " " + nazwa;
     }
     
 }
