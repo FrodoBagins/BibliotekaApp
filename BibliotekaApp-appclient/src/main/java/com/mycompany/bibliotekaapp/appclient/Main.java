@@ -22,6 +22,9 @@ public class Main {
         System.out.println(contr.funkcja());
         
         
+        contr.dodajklienta("Imie", "Nazwisko", "adsd", "12@omg.pl");
+        
+        
         
     }
 }

@@ -16,4 +16,5 @@ public interface controlRemote {
     
     public String funkcja();
     
+    public void dodajklienta(String name, String nazwisko, String haslo, String pesel);
 }
