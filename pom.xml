@@ -10,5 +10,7 @@
     <module>BibliotekaApp-ear</module>
     <module>BibliotekaApp-ejb</module>
     <module>BibliotekaApp-api</module>
+
+
   </modules>
 </project>
