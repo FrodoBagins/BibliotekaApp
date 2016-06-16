@@ -24,6 +24,8 @@ public class Main {
         System.out.println(contr.funkcja());
 
        // contr.dodajklienta("Imie", "Nazwisko", "adsd", "12@omg.pl");
+       
+     //  contr.dodajksiazke("Nazwa", "Nieznany", "14214", "wydawca", "1995", "2");
 
         Scanner odczyt;
         odczyt = new Scanner(System.in);
@@ -79,7 +81,7 @@ public class Main {
                     System.out.println("Podaj haslo");
                     hasl = odczyt.nextLine();
 
-                    //    obsluga.dodajklienta(imie, nazwisko, hasl, mail);
+                   
                     
                     contr.dodajklienta(imie, nazwisko, hasl, mail);
                     
@@ -121,7 +123,9 @@ public class Main {
                     System.out.println("Podaj Rok Wydania");
                     rok = odczyt.nextLine();
 
-                    //      obsluga.dodajksiazke(imie, nazwisko, mail, hasl, rok, "1");
+                   
+                    contr.dodajksiazke(imie, nazwisko, mail, hasl, rok, "2");
+                    
                     break;
 
                 case 5:

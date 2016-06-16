@@ -20,7 +20,7 @@ public interface controlRemote {
 
     int findnumberofkat();
     
-    //  void dodajksiazke(String nazwa, String autor, String isbn, String wydawca, String rokwydania, String kategoria);
+    void dodajksiazke(String nazwa, String autor, String isbn, String wydawca, String rokwydania, String kategoria);
     
     //   void edytujksiazke(int ID, String nazwa, String autor, String isbn, String wydawca, String rokwydania, String kategoria);
     
