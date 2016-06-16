@@ -178,6 +178,7 @@ public class Main {
                     }
 
                     //     lista = obsluga.rekordtabeli();
+                    lista = contr.rekordtabeli();
                     for (int i = 0; i < lista.size(); i++) {
                         System.out.println(lista.get(i));
                     }
@@ -186,6 +187,8 @@ public class Main {
                     idksiazki = Integer.parseInt(temp);
 
                     //    obsluga.usunKsiazke(idksiazki);
+                    contr.usunKsiazke(idksiazki);
+                    
                     break;
 
                 case 9:

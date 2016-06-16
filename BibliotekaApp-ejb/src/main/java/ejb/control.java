@@ -172,13 +172,21 @@ public class control implements controlRemote {
 
         wypozycenia.setKsiazkiId(ksiazki);
         wypozycenia.setUzytkownikId(uzytkownik);
-        
-         wypozycenia.setDataWypozyczenia(data);
-       // wypozycenia.setData(data);
+
+        wypozycenia.setDataWypozyczenia(data);
+        // wypozycenia.setData(data);
         wypozyczeniaFacade.create(wypozycenia);
 
         ksiazki.setStanksiazki(2);
         ksiazkiFacade.edit(ksiazki);
 
+    }
+
+    @Override
+    public void usunKsiazke(int idksiazki) {
+
+        Ksiazki ksiazki = ksiazkiFacade.find(idksiazki);
+
+        ksiazkiFacade.remove(ksiazki);
     }
 }

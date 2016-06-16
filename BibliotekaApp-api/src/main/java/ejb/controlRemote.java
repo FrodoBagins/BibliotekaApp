@@ -32,11 +32,15 @@ public interface controlRemote {
     List<String> rekordtabeli();
         
     void wypozyczKsiazke(int ID, int idksiazki);
-      
-      
-      
-    //  void usunKsiazke(int idksiazki);
+     
+    void usunKsiazke(int idksiazki);
+    
     //  void rezerwujksiazke(int ID, int idksiazki, String data);
     //  List<String> lista();
     //  List<String> brakodbioru();
+    
+    
+    
+    
+    
 }
