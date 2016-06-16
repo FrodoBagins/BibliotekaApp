@@ -23,9 +23,7 @@ public class Main {
 
         System.out.println(contr.funkcja());
 
-       // contr.dodajklienta("Imie", "Nazwisko", "adsd", "12@omg.pl");
        
-     //  contr.dodajksiazke("Nazwa", "Nieznany", "14214", "wydawca", "1995", "2");
 
         Scanner odczyt;
         odczyt = new Scanner(System.in);
@@ -95,6 +93,7 @@ public class Main {
                     nazwisko = odczyt.nextLine();
 
                     //     ID = obsluga.logowanie(imie, nazwisko);
+                    
                     if (ID == 0) {
                         System.out.println("Podano bledne haslo");
 
@@ -129,8 +128,9 @@ public class Main {
                     break;
 
                 case 5:
-
-                    //   numb = obsluga.numberofbooks();
+                   
+                    numb = contr.numberofbooks();
+                    
                     System.out.println("Liczba książek: " + numb);
 
                     break;

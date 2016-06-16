@@ -110,4 +110,9 @@ public class control implements controlRemote {
 
         ksiazkiFacade.edit(ksiazka);
     }
+
+    @Override
+    public int numberofbooks() {
+       return ksiazkiFacade.count();
+    }
 }
