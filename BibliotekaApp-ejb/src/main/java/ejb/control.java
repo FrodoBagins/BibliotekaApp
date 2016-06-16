@@ -86,4 +86,28 @@ public class control implements controlRemote {
         ksiazkiFacade.create(ksiazka);
 
     }
+
+    @Override
+    public void edytujksiazke(int ID, String nazwa, String autor, String isbn, String wydawca, String rokwydania, String kategoria) {
+
+        Ksiazki ksiazka = ksiazkiFacade.find(ID);
+
+        if (!nazwa.isEmpty()) {
+            ksiazka.setNazwa(nazwa);
+        }
+
+        if (!autor.isEmpty()) {
+            ksiazka.setAutor(autor);
+        }
+
+        if (!isbn.isEmpty()) {
+            ksiazka.setIsbn(isbn);
+        }
+
+        if (!wydawca.isEmpty()) {
+            ksiazka.setWydawca(wydawca);
+        }
+
+        ksiazkiFacade.edit(ksiazka);
+    }
 }

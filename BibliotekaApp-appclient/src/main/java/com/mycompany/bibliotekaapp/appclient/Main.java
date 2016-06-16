@@ -211,10 +211,12 @@ public class Main {
                     break;
 
                 case 11:
-                    if (ID == 0) {
-                        System.out.println("Nie jestes zalogowany");
-                        break;
-                    }
+                    
+                 //   if (ID == 0) {
+                 //       System.out.println("Nie jestes zalogowany");
+                 //       break;
+                 //   }
+                    
                     String ksid;
                     int tempid;
                     System.out.println("Podaj Id ksiazki do edycji");
@@ -232,6 +234,9 @@ public class Main {
                     rok = odczyt.nextLine();
 
                     //    obsluga.edytujksiazke(tempid, imie, nazwisko, mail, hasl, rok, "1");
+                    
+                    contr.edytujksiazke(tempid, imie, nazwisko, mail, hasl, rok, "2");
+                    
                     break;
 
             }

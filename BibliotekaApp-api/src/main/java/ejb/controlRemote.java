@@ -22,7 +22,7 @@ public interface controlRemote {
     
     void dodajksiazke(String nazwa, String autor, String isbn, String wydawca, String rokwydania, String kategoria);
     
-    //   void edytujksiazke(int ID, String nazwa, String autor, String isbn, String wydawca, String rokwydania, String kategoria);
+    void edytujksiazke(int ID, String nazwa, String autor, String isbn, String wydawca, String rokwydania, String kategoria);
     
     //  int numberofbooks();
     
