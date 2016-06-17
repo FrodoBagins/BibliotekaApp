@@ -1,10 +1,14 @@
 package com.mycompany.bibliotekaapp.appclient;
 
 import ejb.controlRemote;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
@@ -14,10 +18,21 @@ import javax.naming.NamingException;
  */
 public class Main {
 
-    public static void main(String[] args) throws NamingException, InterruptedException, ExecutionException {
+    public static void main(String[] args) throws NamingException, InterruptedException, ExecutionException, IOException {
         System.out.println("Hello World Enterprise Application Client!");
 
+        Logger logger = Logger.getLogger("MyLog");
+        FileHandler fh;
+
+        fh = new FileHandler("D:/MyLogFile.log", true);
+        logger.addHandler(fh);
+        logger.setUseParentHandlers(false);
+        SimpleFormatter formatter = new SimpleFormatter();
+        fh.setFormatter(formatter);
+
         InitialContext ic = new InitialContext();
+
+        logger.info("Uruchomiono aplikacje");
 
         controlRemote contr = (controlRemote) ic.lookup("sesja");
 
@@ -28,12 +43,10 @@ public class Main {
 
         List<String> lista = new ArrayList<>();
 
-     //   lista = contr.brakodbioru();
-
-     //   for (int i = 0; i < lista.size(); i++) {
-     //       System.out.println(lista.get(i));
-     //  }
-
+        //   lista = contr.brakodbioru();
+        //   for (int i = 0; i < lista.size(); i++) {
+        //       System.out.println(lista.get(i));
+        //  }
         int liczba = contr.findnumberofkat();
 
         System.out.println(liczba);
@@ -63,6 +76,7 @@ public class Main {
 
                 case 0:
 
+                    logger.info("Poprawnie zakonczono działanie aplikacji");
                     k = 0;
 
                     break;
@@ -84,7 +98,7 @@ public class Main {
                     hasl = odczyt.nextLine();
 
                     contr.dodajklienta(imie, nazwisko, hasl, mail);
-
+                    logger.info("Dodano uzytkownika");
                     break;
 
                 case 3:
@@ -98,10 +112,11 @@ public class Main {
 
                     if (ID == 0) {
                         System.out.println("Podano bledne haslo");
+                        logger.info("Nieudana próba logowania");
 
                     } else {
                         System.out.println(ID);
-
+                        logger.info("Zalogowano uzytkownika");
                     }
 
                     break;
@@ -125,7 +140,7 @@ public class Main {
                     rok = odczyt.nextLine();
 
                     contr.dodajksiazke(imie, nazwisko, mail, hasl, rok, "2");
-
+                    logger.info("Dodano ksiazke");
                     break;
 
                 case 5:
@@ -163,7 +178,7 @@ public class Main {
                     idksiazki = Integer.parseInt(temp);
 
                     contr.wypozyczKsiazke(ID, idksiazki);
-
+                    logger.info("Wypozyczono ksiazke");
                     break;
 
                 case 8:
@@ -182,6 +197,7 @@ public class Main {
                     idksiazki = Integer.parseInt(temp);
 
                     contr.usunKsiazke(idksiazki);
+                    logger.info("Usunieto ksiazke");
 
                     break;
 
@@ -205,7 +221,7 @@ public class Main {
                     temp = odczyt.nextLine();
 
                     contr.rezerwujksiazke(ID, idksiazki, temp);
-
+                    logger.info("Zarezerwowano ksiazke");
                     break;
 
                 case 10:
